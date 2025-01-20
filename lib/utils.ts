@@ -1,5 +1,4 @@
 import { clsx, type ClassValue } from "clsx";
-import { optimizeImage } from "next/dist/server/image-optimizer";
 import { twMerge } from "tailwind-merge";
 
 export function cn(...inputs: ClassValue[]) {
