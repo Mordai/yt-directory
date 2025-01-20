@@ -22,7 +22,7 @@ export const STARTUPS_QUERY_BY_ID =
   slug,
   _createdAt,
   author -> {
-    _id, name, image, bio
+    _id, name, image, bio, userName
   }, 
   views,
   description,
