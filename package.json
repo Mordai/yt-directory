@@ -13,10 +13,6 @@
   },
   "type": "module",
   "packageManager": "npm@11.0.0",
-  "overrides": {
-    "react": "$react",
-    "react-dom": "$react-dom"
-  },
   "dependencies": {
     "@radix-ui/react-slot": "^1.1.1",
     "@sanity/image-url": "^1.1.0",
@@ -26,9 +22,9 @@
     "clsx": "^2.1.1",
     "esbuild-register": "^3.6.0",
     "lucide-react": "^0.473.0",
-    "next": "^15.2.0-canary.17",
+    "next": "^15.2.0-canary.27",
     "next-auth": "^5.0.0-beta.25",
-    "next-sanity": "^9.8.29-canary.0",
+    "next-sanity": "^9.8.42",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "sanity": "^3.70.0",
@@ -44,7 +40,7 @@
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "eslint": "^9",
-    "eslint-config-next": "15.1.5",
+    "eslint-config-next": "15.1.6",
     "postcss": "^8",
     "tailwindcss": "^3.4.17",
     "typescript": "^5"

@@ -29,7 +29,7 @@ export default async function Navbar() {
                 <button type="submit">Log out</button>
               </form>
 
-              <Link href={`/user/${session?.user}`}>
+              <Link href={`/user/${session?.user.id}`}>
                 <span>{session?.user?.name}</span>
               </Link>
             </>
