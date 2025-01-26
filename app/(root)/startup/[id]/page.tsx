@@ -1,22 +1,25 @@
 import { StartupType } from "@/components/StartupCard";
+import { Skeleton } from "@/components/ui/skeleton";
 import { formatDate } from "@/lib/utils";
 import { client } from "@/sanity/lib/client";
 import { STARTUPS_QUERY_BY_ID } from "@/sanity/lib/quries";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import React from "react";
-//import markdownit from "markdown-it";
+import React, { Suspense } from "react";
+import markdownit from "markdown-it";
+import ViewCount from "@/components/View";
 
 export const experimental_ppr = true;
-//const md = markdownit();
+const md = markdownit();
 
 const StartupPage = async ({ params }: { params: Promise<{ id: string }> }) => {
   const id = (await params).id;
   const post: StartupType = await client.fetch(STARTUPS_QUERY_BY_ID, { id });
-  const parsedContent = "";
-  //const parsedContent = md.render(post?.pitch || "");
+  const parsedContent = md.render(post?.pitch || "");
+
   if (!post) return notFound();
+
   return (
     <>
       <section className="pink_container !min-h-[230px]">
@@ -57,12 +60,18 @@ const StartupPage = async ({ params }: { params: Promise<{ id: string }> }) => {
           {parsedContent ? (
             <article
               className="prose max-w-4xl font-work-sans break-all"
-              dangerouslySetInnerHTML={{ __html: "parsedContent" }}
+              dangerouslySetInnerHTML={{ __html: parsedContent }}
             />
           ) : (
             <p className="no-result">No details provided</p>
           )}
         </div>
+
+        <hr className="divider" />
+
+        <Suspense fallback={<Skeleton className="view_skeleton" />}>
+          <ViewCount id={id} />
+        </Suspense>
       </section>
     </>
   );
