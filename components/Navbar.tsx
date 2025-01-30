@@ -12,7 +12,6 @@ export default async function Navbar() {
         <Link href="">
           <Image src="/logo.png" alt="logo" width={144} height={30} />
         </Link>
-        <p>{JSON.stringify(session)}</p>
         <div className="flex item-center gap-5 text-black">
           {session && session?.user ? (
             <>
@@ -23,7 +22,7 @@ export default async function Navbar() {
               <form
                 onClick={async () => {
                   "use server";
-                  await signOut({ redirectTo: "/" });
+                  await signOut({ redirect: false, redirectTo: "/" });
                 }}
               >
                 <button type="submit">Log out</button>
